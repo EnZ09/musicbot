@@ -1,0 +1,12 @@
+os
+shutil
+system
+math
+random
+discord
+discord.py
+youtube_dl
+discord.ext 
+commands 
+discord.utils 
+get
