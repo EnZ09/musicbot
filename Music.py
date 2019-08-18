@@ -9,7 +9,7 @@ import youtube_dl
 from discord.ext import commands
 from discord.utils import get
 
-TOKEN = 'NjEyMzQxMzczNjg0OTQwODAy.XVk0cg.qpTdKltJZFfAZLlj8tcw17cEt-4'
+
 BOT_PREFIX = '!'
 
 bot = commands.Bot(command_prefix=BOT_PREFIX)
