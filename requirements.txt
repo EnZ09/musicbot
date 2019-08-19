@@ -6,3 +6,4 @@ ffprobe3
 youtube-dl
 websockets
 discordbot.py
+PyNaCl
