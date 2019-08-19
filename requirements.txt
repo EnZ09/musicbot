@@ -11,6 +11,4 @@ spotdl
 discord.py[voice]
 random2
 get
-opus-api
-opuslib
 --upgrade youtube-dl
