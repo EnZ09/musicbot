@@ -343,5 +343,5 @@ async def say(ctx, channel: discord.TextChannel, *, cnt):
 token = os.environ.get('BOT_TOKEN')
 
 
-bot.run('NjEyMzQxMzczNjg0OTQwODAy.XVk0cg.qpTdKltJZFfAZLlj8tcw17cEt-4')
+bot.run(str(token))
 
