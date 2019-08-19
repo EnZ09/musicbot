@@ -9,3 +9,4 @@ discordbot.py
 PyNaCl
 spotdl
 discord.py[voice]
+random2
