@@ -4,8 +4,5 @@ ffmpeg
 ffprobe
 ffprobe3
 youtube-dl
-random
 shutil
-pip
-PyInstaller
 websockets
