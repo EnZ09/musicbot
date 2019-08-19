@@ -13,3 +13,4 @@ random2
 get
 opus-api
 opuslib
+discord.opus.load_opus
