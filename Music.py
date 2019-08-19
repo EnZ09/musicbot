@@ -10,9 +10,6 @@ import youtube_dl
 from discord.ext import commands
 from discord.utils import get
 
-git add *
-git commit -m "initial commit"
-git push heroku master
 
 BOT_PREFIX = '!'
 
