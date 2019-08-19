@@ -11,4 +11,4 @@ spotdl
 discord.py[voice]
 random2
 get
-shutil
+
