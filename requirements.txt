@@ -10,3 +10,5 @@ PyNaCl
 spotdl
 discord.py[voice]
 random2
+discord.utils 
+get
