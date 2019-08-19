@@ -18,7 +18,12 @@ bot = commands.Bot(command_prefix=BOT_PREFIX)
 @bot.event
 async def on_ready():
     print("Вход выполнен: " + bot.user.name + "\n")
-
+    
+@Bot.event
+async def on_message(message):
+    if message.content == 'привет':
+        await message.channel.send(f'{message.author.mention}, Привет куколд!')
+    
 
 @bot.command(pass_context=True, aliases=['j', 'joi'])
 async def вход(ctx):
