@@ -1,12 +1,10 @@
 aiohttp
 discord.py
-discordbot.py
 ffmpeg
 ffprobe
 ffprobe3
 youtube-dl
 random
-random2
 shutil
 pip
 PyInstaller
