@@ -4,5 +4,5 @@ ffmpeg
 ffprobe
 ffprobe3
 youtube-dl
-shutil
 websockets
+discordbot.py
