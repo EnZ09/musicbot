@@ -19,7 +19,7 @@ bot = commands.Bot(command_prefix=BOT_PREFIX)
 async def on_ready():
     print("Вход выполнен: " + bot.user.name + "\n")
     
-@Bot.event
+@bot.event
 async def on_message(message):
     if message.content == 'привет':
         await message.channel.send(f'{message.author.mention}, Привет куколд!')
