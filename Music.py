@@ -2,6 +2,7 @@ import os
 import shutil
 from os import system
 import math
+import nacl.utils
 import random
 
 import discord
