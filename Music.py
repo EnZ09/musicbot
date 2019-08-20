@@ -3,6 +3,7 @@ import shutil
 from os import system
 import math
 import nacl.utils
+import ffmpeg
 import random
 
 import discord
