@@ -1,6 +1,5 @@
 import os
 import shutil
-from doctest import master
 from os import system
 import math
 import random
@@ -10,16 +9,15 @@ import youtube_dl
 from discord.ext import commands
 from discord.utils import get
 
-
 BOT_PREFIX = '!'
 
 bot = commands.Bot(command_prefix=BOT_PREFIX)
 
+
 @bot.event
 async def on_ready():
     print("Вход выполнен: " + bot.user.name + "\n")
-    
-    
+
 
 @bot.command(pass_context=True, aliases=['j', 'joi'])
 async def вход(ctx):
@@ -59,7 +57,6 @@ async def выход(ctx):
 
 @bot.command(pass_context=True, aliases=['p', 'pla'])
 async def плей(ctx, url: str):
-
     def check_queue():
         Queue_infile = os.path.isdir("./Queue")
         if Queue_infile is True:
@@ -97,8 +94,6 @@ async def плей(ctx, url: str):
             queues.clear()
             print("Больше песен в очереди нет...\n")
 
-
-
     song_there = os.path.isfile("song.mp3")
     try:
         if song_there:
@@ -109,7 +104,6 @@ async def плей(ctx, url: str):
         print("Песня воспроизводится")
         await ctx.send("ERROR: Песня играет")
         return
-
 
     Queue_infile = os.path.isdir("./Queue")
     try:
@@ -159,7 +153,6 @@ async def плей(ctx, url: str):
 
 @bot.command(pass_context=True, aliases=['pa', 'pau'])
 async def пауза(ctx):
-
     voice = get(bot.voice_clients, guild=ctx.guild)
 
     if voice and voice.is_playing():
@@ -173,7 +166,6 @@ async def пауза(ctx):
 
 @bot.command(pass_context=True, aliases=['r', 'res'])
 async def старт(ctx):
-
     voice = get(bot.voice_clients, guild=ctx.guild)
 
     if voice and voice.is_paused():
@@ -205,6 +197,7 @@ async def стоп(ctx):
 
 
 queues = {}
+
 
 @bot.command(pass_context=True, aliases=['q', 'que'])
 async def очередь(ctx, url: str):
@@ -243,7 +236,6 @@ async def очередь(ctx, url: str):
         q_path = os.path.abspath(os.path.realpath("Queue"))
         system(f"spotdl -ff song{q_num} -f " + '"' + q_path + '"' + " -s " + url)
 
-
     await ctx.send("Добавлена песня " + str(q_num) + " в очередь")
 
     print("Добавлена песня в очередь\n")
@@ -264,30 +256,33 @@ async def скип(ctx):
 
 @bot.command()
 async def отнимание(ctx, a: int, b: int):
-    await ctx.send(a-b)
+    await ctx.send(a - b)
+
 
 @bot.command()
 async def деление(ctx, a: int, b: int):
-    await ctx.send(a/b)
+    await ctx.send(a / b)
+
 
 @bot.command()
 async def степень(ctx, a: int, b: int):
-    await ctx.send(a**b)
+    await ctx.send(a ** b)
+
 
 @bot.command()
 async def сумма(ctx, a: int, b: int):
-    await ctx.send(a+b)
+    await ctx.send(a + b)
 
 
 @bot.command()
 async def умножить(ctx, a: int, b: int):
-    await ctx.send(a*b)
+    await ctx.send(a * b)
 
 
 @bot.command()
 async def ролл(ctx):
     num = random.randint(0, 100)
-    await ctx.send(str(num)  + "{}".format(ctx.author.mention))
+    await ctx.send(str(num) + "{}".format(ctx.author.mention))
 
 
 @bot.command(pass_context=True)
@@ -301,45 +296,49 @@ async def f(ctx, arg: discord.Member = None):
         emb = discord.Embed(title=f'{author.name} press F to pay respect' + f' {arg.name}', colour=0x333333)
         await ctx.send(embed=emb)
 
+
 @bot.command()
-async def аватар(ctx, member : discord.Member = None):
+async def аватар(ctx, member: discord.Member = None):
     user = ctx.message.author if (member == None) else member
     await ctx.message.delete()
-    embed = discord.Embed(title=f'Аватар пользователя {user}', description= f'[Ссылка на изображение]({user.avatar_url})', color=user.color)
-    embed.set_footer(text= f'Вызвано: {ctx.message.author}', icon_url= str(ctx.message.author.avatar_url))
+    embed = discord.Embed(title=f'Аватар пользователя {user}',
+                          description=f'[Ссылка на изображение]({user.avatar_url})', color=user.color)
+    embed.set_footer(text=f'Вызвано: {ctx.message.author}', icon_url=str(ctx.message.author.avatar_url))
     embed.set_image(url=user.avatar_url)
     await ctx.send(embed=embed)
 
+
 @bot.command()
 async def флип(ctx):
-    num=random.randint(1,2)
+    num = random.randint(1, 2)
     if (num == 1):
-           await ctx.send("Вым выпал -Орёл")
-           print("[?coin] - done")
-    if(num == 2):
-           await ctx.send("Вам выпала -Решка")
-           print("[?coin] - done")
+        await ctx.send("Вым выпал -Орёл")
+        print("[?coin] - done")
+    if (num == 2):
+        await ctx.send("Вам выпала -Решка")
+        print("[?coin] - done")
+
 
 @bot.command()
 async def привет(ctx):
     author = ctx.message.author
     await ctx.send(f"Привет, куколд <@{author.id}>")
 
+
 @bot.command()
 async def Привет(ctx):
     author = ctx.message.author
     await ctx.send(f"Привет, куколд <@{author.id}>")
 
+
 @bot.command()
-@commands.has_permissions(administrator = True) # Могут использовать лишь пользователи с правами Администратора
+@commands.has_permissions(administrator=True)  # Могут использовать лишь пользователи с правами Администратора
 async def say(ctx, channel: discord.TextChannel, *, cnt):
-   await ctx.message.delete() # Удаляет написанное вами сообщение
-   embed = discord.Embed(description = cnt, colour = 0x00ff80) # Генерация красивого сообщения
-   await channel.send(embed=embed) # Отправка сообщения в указанный Вами канал
+    await ctx.message.delete()  # Удаляет написанное вами сообщение
+    embed = discord.Embed(description=cnt, colour=0x00ff80)  # Генерация красивого сообщения
+    await channel.send(embed=embed)  # Отправка сообщения в указанный Вами канал
 
 
 token = os.environ.get('BOT_TOKEN')
 
-
-bot.run('NjEyMzQxMzczNjg0OTQwODAy.XVpjSw.jpa5ECfzjo4KrjaOHPdayIeKAUk')
-
+bot.run(str(token))
