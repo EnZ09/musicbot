@@ -5,10 +5,9 @@ ffprobe
 ffprobe3
 youtube-dl
 websockets
-discordbot.py
 PyNaCl
 spotdl
 discord.py[voice]
 random2
 get
---upgrade youtube-dl
+
